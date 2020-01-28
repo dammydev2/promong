@@ -1,0 +1,1 @@
+<li><a href="{{ url('/chnagebanner') }}">change banner</a></li>
