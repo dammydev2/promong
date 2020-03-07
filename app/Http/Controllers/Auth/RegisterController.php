@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Promoter;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -65,6 +66,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Promoter::create([
+            'name' => $data['name'],
+            'contact_name' => $data['contact_name'],
+            'contact_phone' => $data['contact_phone'],
+            'email' => $data['email'],
+        ]);
         return User::create([
             'name' => $data['name'],
             'contact_name' => $data['contact_name'],
@@ -72,6 +79,12 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function index()
+    {
+        $user = User::all();
+        return view('index', compact('user'));
     }
 
     

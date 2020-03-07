@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('banner')->nullable();
+            $table->string('text')->nullable();
+            $table->string('user_type')->default('client');
+            $table->enum('status',['unapproved','approved'])->default('unapproved');
             $table->rememberToken();
             $table->timestamps();
         });

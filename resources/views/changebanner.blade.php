@@ -47,12 +47,24 @@
                                                 @endif
                                             </div>
                                         </div>
+
+                                            <div class="form-group">
+                                                <label>Text over Banner</label>
+                                                <input type="text" value="{{ $data->text }}" name="text" class="form-control">
+                                            </div>
+
                                         <div class="form-group row mb-0 mt-5">
                                             <div class="col-md-8 offset-md-4">
                                                 <button type="submit" class="btn btn-primary">Update Banner</button>
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                                <div class="col-md-10" style="background-image: url('{{ URL::asset('uploads/'.$data->banner) }}'); background-size: cover; height: 300px;">
+                                    <p style="height: 250px;"></p>
+                                    <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff;">
+                                        <h3><center>{{ $data->text }}</center></h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -2,12 +2,17 @@
 
 @section('content')
 <div class="container">
-	@if(Session::has('success'))
-	<div class="alert alert-success">{{ Session::get('success') }}</div>
-	@endif
-    <div class="row">
+	<div class="row">
+
+		@if(Session::has('success'))
+		<div class="alert alert-success">{{ Session::get('success') }}</div>
+		@endif
+
+		@if(Session::has('message'))
+		<div class="alert alert-info">{{ Session::get('message') }}</div>
+		@endif
 
 
-    </div>
+	</div>
 </div>
 @endsection
