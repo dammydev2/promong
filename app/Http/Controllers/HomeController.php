@@ -8,6 +8,7 @@ use Session;
 use DB;
 use Hash;
 use App\Message;
+use App\ReplyMessage;
 
 class HomeController extends Controller
 {
@@ -176,14 +177,14 @@ class HomeController extends Controller
     {
         $table = \Auth::User()->name;
         if (Session::get('subtype') === 'Rounds') {
-         $result = DB::table($table)->where('type', Session::get('tourType'))
-         ->where('date_start', '>=', Session::get('promo_start'))
-         ->where('date_end', '>=', Session::get('promo_end'))
-         ->where('subtype', 'Rounds')
-         ->orderBY('id', 'desc')
-         ->paginate(100);
-     }
-     else{
+           $result = DB::table($table)->where('type', Session::get('tourType'))
+           ->where('date_start', '>=', Session::get('promo_start'))
+           ->where('date_end', '>=', Session::get('promo_end'))
+           ->where('subtype', 'Rounds')
+           ->orderBY('id', 'desc')
+           ->paginate(100);
+       }
+       else{
         $result = DB::table($table)->where('type', Session::get('tourType'))
         ->where('date_start', '>=', Session::get('promo_start'))
         ->where('date_end', '>=', Session::get('promo_end'))
@@ -346,6 +347,20 @@ public function sendMessage(Request $request)
         'promoter' => \Auth::User()->name,
     ]);
     return redirect()->back()->with('success', 'message sent successfully');
+}
+
+public function inbox()
+{
+    $message = Message::where('promoter', \Auth::User()->name)->orderBy('id', 'desc')->paginate(20);
+    return view('user.message', compact('message'));
+}
+
+public function message($id)
+{
+    $message = Message::where('id', $id)->where('promoter', \Auth::User()->name)->get();
+    $msg = ReplyMessage::where('message_id', $id)->get();
+    return view('user.readMessage', compact('message','msg'));
+
 }
 
 

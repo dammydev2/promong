@@ -24,45 +24,12 @@
 					<div class="frame">
 						<div class="nav">
 							<ul class="links">
-								<li class="signin-active"><a class="btn">Sign in</a></li>
-								<li class="signup-inactive"><a class="btn">Create Account </a></li>
+								<li class="signin-active"><a class="btn">Create Account</a></li>
 							</ul>
 						</div>
 						<div ng-app ng-init="checked = false">
-							<form class="form-signin" action="{{ url('/login') }}" method="post" name="form">
+							<form class="form-signin" action="{{ url('/register') }}" method="post" name="form">
 
-								@csrf
-
-								<div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-									<label>Email</label>
-									<input type="email" class="form-styling form-control" name="email" value="{{ old('email') }}" placeholder="Email">
-									<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-									@if ($errors->has('email'))
-									<span class="help-block" style="color: red;">
-										<strong>{{ $errors->first('email') }}</strong>
-									</span>
-									@endif
-								</div>
-
-								<div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-									<label>Password</label>
-									<input type="password" class="form-styling form-control" placeholder="Password" name="password" style="background: #fff">
-									<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-									@if ($errors->has('password'))
-									<span class="help-block" style="color: red;">
-										<strong>{{ $errors->first('password') }}</strong>
-									</span>
-									@endif
-
-								</div>
-
-								<label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
-								<div class="btn-animate">
-									<button type="submit" class="btn-signin btn btn-primary btn-block btn-flat">Sign In</button>
-								</div>
-							</form>
-
-							<form class="form-signup" action="{{ url('/register') }}" method="post" name="form">
 								@csrf
 
 								<div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -130,8 +97,10 @@
 									</span>
 									@endif
 								</div>
-								<button type="submit" class="btn-signup btn btn-primary btn-block btn-flat">Register</button>
-								<!-- <a ng-click="checked = !checked" class="btn-signup">Sign Up</a> -->
+
+								<div class="btn-animate">
+									<button type="submit" class="btn-signin btn btn-primary btn-block btn-flat">Register</button>
+								</div>
 							</form>
 
 							<div  class="success">
@@ -144,10 +113,6 @@
 									<p> Thanks for signing up! Check your email for confirmation.</p>
 								</div>
 							</div>
-						</div>
-
-						<div class="forgot">
-							<a href="#">Forgot your password?</a>
 						</div>
 
 						<div>
@@ -218,7 +183,11 @@ crossorigin="anonymous"></script>
 	});
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<style type="text/css">
+	.help-block{
+		color: red;
+	}
+</style>
 
 
 @endsection

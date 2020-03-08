@@ -33,6 +33,10 @@ Route::get('/account', function () {
 	return view('account');
 });
 
+Route::get('/createAccount', function () {
+	return view('createAccount');
+});
+
 
 Auth::routes();
 
@@ -49,13 +53,15 @@ Route::group(['middleware' => ['user']], function () {
 	Route::get('viewcode', 'HomeController@viewcode');
 	Route::get('user/edit/{id}', 'HomeController@useredit');
 	Route::get('user/delete/{id}', 'HomeController@userdelete');
+	Route::get('user/read/message/{id}', 'HomeController@message');
 	Route::get('tourcodes', 'HomeController@tourcodes');
 	Route::get('user', 'HomeController@user');
 	Route::get('roundwinner', 'HomeController@roundwinner');
 	Route::get('checkRoundWinner', 'HomeController@checkRoundWinner');
 	Route::get('codeDelete/{id}', 'HomeController@codeDelete');
 	Route::get('roundwinners', 'HomeController@roundwinners');
-	Route::get('user/messageAdmin', 'HomeController@messageAdmin');
+	Route::get('user/inbox', 'HomeController@inbox');
+	Route::get('user/messageAdmin', 'HomeController@messageAdmin')->name('user/messageAdmin');
 	Route::get('admin/adduser', 'HomeController@adduser')->name('admin/adduser');
 	Route::post('/updateprofile', 'HomeController@updateprofile');
 	Route::post('user/generatecode', 'HomeController@generatecodenow');
