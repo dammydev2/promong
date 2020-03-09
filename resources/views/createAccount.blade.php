@@ -24,6 +24,7 @@
 					<div class="frame">
 						<div class="nav">
 							<ul class="links">
+								<li class="signin-inactive"><a href="{{ url('/account') }}" class="btn">Login</a></li>
 								<li class="signin-active"><a class="btn">Create Account</a></li>
 							</ul>
 						</div>

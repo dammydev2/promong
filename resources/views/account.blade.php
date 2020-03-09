@@ -25,7 +25,7 @@
 						<div class="nav">
 							<ul class="links">
 								<li class="signin-active"><a class="btn">Sign in</a></li>
-								<li class="signup-inactive"><a class="btn">Create Account </a></li>
+								<li class="signup-inactive"><a href="{{ url('/createAccount') }}" class="btn">Create Account </a></li>
 							</ul>
 						</div>
 						<div ng-app ng-init="checked = false">
