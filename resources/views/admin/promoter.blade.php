@@ -20,7 +20,7 @@
 		<div class="col-md-10 panel panel-primary">
 			<div class="panel-heading">Promoter(s)</div>
 			<div class="panel-body">
-				<table class="table table-bordered">
+				<table class="table table-bordered" style="width: 500px; height: 600; overflow-y: scroll;">
 					{{ $user->links() }}
 					<tr>
 						<th></th>
