@@ -20,7 +20,7 @@
 			<div class="col-md-12 section-two-contact" >
 				<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-				<div class="container-contact">
+				<div class="container-contact col-sm-12">
 					<div class="frame">
 						<div class="nav">
 							<ul class="links">

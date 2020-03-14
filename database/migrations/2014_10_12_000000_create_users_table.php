@@ -28,6 +28,19 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+        array(
+            'email' => 'admin@promo.com',
+            'name' => 'admin',
+            'contact_name' => 'admin',
+            'contact_phone' => '0909',
+            'password' => '$2y$10$gXsVeEjKriyxyLQY2B9QCud7vs7AVwLNkqVL93LbqunKokx1TR9w6',
+            'user_type' => 'admin',
+            'status' => 'approved',
+            'verified' => true
+        )
+    );
     }
 
     /**
