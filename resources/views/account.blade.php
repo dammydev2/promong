@@ -175,6 +175,11 @@
 		</div>
 	</div>
 </div>
+<style type="text/css">
+	.form-control{
+		color: #000
+	}
+</style>
 <!-- the call to action and all its family ended -->
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>

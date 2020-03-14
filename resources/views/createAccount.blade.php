@@ -188,6 +188,10 @@ crossorigin="anonymous"></script>
 	.help-block{
 		color: red;
 	}
+
+	.form-control{
+		color: #000;
+	}
 </style>
 
 
