@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration
             'password' => '$2y$10$gXsVeEjKriyxyLQY2B9QCud7vs7AVwLNkqVL93LbqunKokx1TR9w6',
             'user_type' => 'admin',
             'status' => 'approved',
-            'verified' => true
+            'email_verified_at' => '2020-03-07 18:17:58'
         )
     );
     }
