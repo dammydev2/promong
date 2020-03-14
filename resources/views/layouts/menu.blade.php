@@ -15,7 +15,7 @@
 <?php
 $total_msg = count(DB::table('messages')->where('promoter', Auth::User()->name)->get());
 ?>
-<li><a href="{{ url('user/inbox') }}">Inbox ({{ $total_msg }})</a></li>
+<li><a href="{{ url('user/inbox') }}">Messages ({{ $total_msg }})</a></li>
 @endif
 
 @if(\Auth::User()->user_type == 'admin')
