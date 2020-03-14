@@ -66,6 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //here is where the promo enteres
         Promoter::create([
             'name' => $data['name'],
             'contact_name' => $data['contact_name'],
