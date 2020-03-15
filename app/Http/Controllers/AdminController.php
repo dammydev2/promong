@@ -9,6 +9,8 @@ use App\Message;
 use App\ReplyMessage;
 use DB;
 use Session;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AdminController extends Controller
 {
@@ -35,7 +37,26 @@ class AdminController extends Controller
     	->update([
     		'status' => 'approved'
     	]);
-    	return redirect()->back()->with('success', 'User Activated successfully');
+        if (Schema::hasTable($name))
+        {
+
+        }
+        else{
+            Schema::create($name, function($table)
+            {
+                $table->increments('id');
+                $table->string('type');
+                $table->string('subtype');
+                $table->string('code');
+                $table->string('verified_by')->nullable();
+                $table->string('verify_phone')->nullable();
+                $table->string('verify_email')->nullable();
+                $table->string('date_start');
+                $table->string('date_end');
+                $table->string('round_winner');
+            });
+        }
+        return redirect()->back()->with('success', 'User Activated successfully');
     }
 
     public function deactivate($id)
