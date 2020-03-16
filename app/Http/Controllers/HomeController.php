@@ -140,8 +140,8 @@ class HomeController extends Controller
                     
                 ]);
             }
-            return redirect('generatecode')->with('success', 'Code Created successfully');
-        }   
+        }
+        return redirect('generatecode')->with('success', 'Code Created successfully');   
     }
 
     public function viewcode()
